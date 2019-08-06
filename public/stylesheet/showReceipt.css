@@ -1,0 +1,16 @@
+img{
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.display img{
+	width: 200px;
+	height: 200px;
+}
+
+.segment{
+	max-width:500px;
+	margin-left:auto;
+	margin-right:auto;
+}

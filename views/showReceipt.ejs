@@ -1,0 +1,27 @@
+<%include ./partials/header%>
+	<div class="container">
+
+		<img src="https://cdn.shopify.com/s/files/1/0081/3806/3957/files/Untitled-11_180x.png?v=1557331328" alt="" class="img-fluid image mt-3">
+		
+		<div class="segment">
+			<div class="mt-5">
+				<h3>Receipt No. : <%=receipt.receiptNumber%></h3>
+			</div>
+
+			<div class="mt-3">
+				We have received an ammount of Rs. <%=receipt.ammount%> from <%=receipt.name%> , R/O <%=receipt.address%> on <%=receipt.createdAt.toDateString()%>
+			</div>
+
+			<div class="mt-5">
+				Thank you.
+			</div>
+
+		</div>
+		
+
+		<div class="mt-5 display"><img src="<%=receipt.image.secure_url%>" alt="image" class="image img-fluid"></div>
+
+
+	</div>
+	
+<%include ./partials/footer%>

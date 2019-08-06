@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbUrl = process.env.dbUrl || 'mongodb://localhost/devnet';
+const dbUrl = process.env.dbUrl || 'mongodb://localhost/receipt';
 
 const connectDb = async () => {
   try {
