@@ -4,7 +4,7 @@ const mongoose= require("mongoose"),
 		const receiptSchema = new Schema({
 			name:String,
 			address:String,
-			ammount:Number,
+			ammount:String,
 			receiptNumber:String,
 			image:{ 
 				public_id:String,
