@@ -1,27 +1,58 @@
 <%include ./partials/header%>
-	<div class="container">
+	<div  class="container">
+		<div id="element">
+			<img src="https://cdn.shopify.com/s/files/1/0081/3806/3957/files/Untitled-11_180x.png?v=1557331328" alt="" class="img-fluid image mt-3">
+			
+			<div class="segment">
+				<div class="mt-5">
+					<h3>Receipt No. : <%=receipt.receiptNumber%></h3>
+				</div>
 
-		<img src="https://cdn.shopify.com/s/files/1/0081/3806/3957/files/Untitled-11_180x.png?v=1557331328" alt="" class="img-fluid image mt-3">
+				<div class="mt-3">
+					We have received an ammount of Rs. <%=receipt.ammount%> from <%=receipt.name%> , R/O <%=receipt.address%> on <%=receipt.createdAt.toDateString()%>
+				</div>
+
+				<div class="mt-5">
+					Thank you.
+				</div>
+
+			</div>
+			
+
+			<div class="mt-5 display"><img src="<%=receipt.image.secure_url%>" alt="image" class="image img-fluid"></div>
+
+		</div>
+
 		
-		<div class="segment">
-			<div class="mt-5">
-				<h3>Receipt No. : <%=receipt.receiptNumber%></h3>
-			</div>
-
-			<div class="mt-3">
-				We have received an ammount of Rs. <%=receipt.ammount%> from <%=receipt.name%> , R/O <%=receipt.address%> on <%=receipt.createdAt.toDateString()%>
-			</div>
-
-			<div class="mt-5">
-				Thank you.
-			</div>
+		
+		<div class="button mt-5 mb-5">
+			<button class="btn btn-outline-success" id="save">Save the receipt</button>
+			<a class="btn btn-outline-info" href="/receipt">Create another Receipt</a>
 
 		</div>
 		
-
-		<div class="mt-5 display"><img src="<%=receipt.image.secure_url%>" alt="image" class="image img-fluid"></div>
-
-
 	</div>
+
+	<script src="/javascript/html2canvas.js"></script>
+	<script src="/javascript/html2image.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+	<script>
+		$('#save').click(function(){
+			var element=$('#element').get(0);
+			var lebar="600";
+			var tinggi="450";
+			var type="jpg";
+			var fileName="htmlToImg";
+			html2canvas(element).then(function(canvas){
+				var canvasWidth=canvas.width;
+				var canvasHeight=canvas.height;
+				var img=Canvas2Image.convertToImage(canvas,canvasWidth,canvasHeight);
+				Canvas2Image.saveAsImage(canvas,lebar,tinggi,type,fileName);
+			})
+
+		})
+	</script>
 	
 <%include ./partials/footer%>
