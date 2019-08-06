@@ -19,7 +19,7 @@
 			</div>
 			
 
-			<div class="mt-5 display"><img src="<%=receipt.image.secure_url%>" alt="image" class="image img-fluid"></div>
+			<div class="mt-5 mb-5 display"><img src="<%=receipt.image.secure_url%>" alt="image" class="image img-fluid"></div>
 
 		</div>
 
@@ -27,7 +27,7 @@
 		
 		<div class="button mt-5 mb-5">
 			<button class="btn btn-outline-success" id="save">Save the receipt</button>
-			<a class="btn btn-outline-info" href="/receipt">Create another Receipt</a>
+			<a class="btn btn-outline-info" href="/receipt">Go Back</a>
 
 		</div>
 		
@@ -38,21 +38,8 @@
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-	<script>
-		$('#save').click(function(){
-			var element=$('#element').get(0);
-			var lebar="600";
-			var tinggi="450";
-			var type="jpg";
-			var fileName="htmlToImg";
-			html2canvas(element).then(function(canvas){
-				var canvasWidth=canvas.width;
-				var canvasHeight=canvas.height;
-				var img=Canvas2Image.convertToImage(canvas,canvasWidth,canvasHeight);
-				Canvas2Image.saveAsImage(canvas,lebar,tinggi,type,fileName);
-			})
-
-		})
+	<script src="/javascript/showReceipt.js">
+		
 	</script>
 	
 <%include ./partials/footer%>
